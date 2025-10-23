@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <h2>Registrar</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mt-2">
+            <label for="username">Usuario</label>
+            <input type="text" name="username" id="username" class="form-control">
+            {% if form.username.errors %}
+                <span class="text-danger">{{ form.username.errors}}</span>
+            {% endif %}
+        </div>
+        <div class="mt-2">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-control">
+            {% if form.email.errors %}
+                <span class="text-danger">{{ form.email.errors}}</span>
+            {% endif %}
+        </div>
+        <div class="mt-2">
+            <label for="password1">Contraseña</label>
+            <input type="password" name="password1" id="password1" class="form-control">
+            {% if form.password1.errors %}
+                <span class="text-danger">{{ form.password1.errors}}</span>
+            {% endif %}
+        </div>
+        <div class="mt-2">
+            <label for="password2">Confirmar contraseña</label>
+            <input type="password" name="password2" id="password2" class="form-control">
+            {% if form.password2.errors %}
+                <span class="text-danger">{{ form.password2.errors}}</span>
+            {% endif %}
+        </div>
+
+        <div class="mt-2"><button class="btn btn-success">Registrarse</button>
+        </div>
+    </form>
+{% endblock contenido %}
